@@ -59,7 +59,7 @@ string GetClearText(string text, List<string> regexList, string replacement)
 /*
 myDirtyText = "Administrator"
 replacement = "Spam"
-List<string> regexList = new List<string>() {"([`a4][Ťd][ͬm][ɨi1][έn])"}
+List<string> regexList = new List<string>() {"([Ааa4][Ддd][Ммm][Ииi1][Ннn])"}
 var myClearedText = GetClearText(myDirtyText, regexList, replacement)
 // myClearedText will be = "Spamistrator"
 */
