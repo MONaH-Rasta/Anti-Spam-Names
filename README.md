@@ -4,7 +4,7 @@ You can also control fake admin players. Use 'Admin name blacklist' to specify w
 
 Now supports regex! Default regex matches `IP`, `port`, `domain` with `subdomains` and `admin` word.
 Regex list check is case insensitive by the design (at least for english). Replaces founded with `Replace for spam`.
-All checks are disabled by default, so you can install plugin safely and then configuration default config to your needs.
+All checks are disabled by default, so you can install plugin safely and then change default config to your needs.
 You probably want to try enabling only regex list first, as it may be all you need.
 Afterwards you can always enable additional checks if needed.
 
