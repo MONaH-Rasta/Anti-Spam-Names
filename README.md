@@ -43,7 +43,7 @@ Afterwards you can always enable additional checks if needed.
   "Spam regex list": [
     "(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)",
     "(:\\d{3,5})",
-    "([¿‡a4][ƒ‰d][ÃÏm][»Ëi1][ÕÌn])",
+    "([–ê–∞a4][–î–¥d][–ú–ºm][–ò–∏i1][–ù–Ωn])",
     "(https|http|ftp|):\\/\\/",
     "((\\p{L}+|[0-9]+)+\\.)+(com|org|net|int|edu|gov|mil|ch|cn|co|de|eu|fr|in|nz|ru|tk|tr|uk|us)",
     "((\\p{L}+|[0-9]+)+\\.)+(ua|pro|io|dev|me|ml|tk|ml|ga|cf|gq|tf)"
@@ -59,7 +59,7 @@ string GetClearText(string text, List<string> regexList, string replacement)
 /*
 myDirtyText = "Administrator"
 replacement = "Spam"
-List<string> regexList = new List<string>() {"([¿‡a4][ƒ‰d][ÃÏm][»Ëi1][ÕÌn])"}
+List<string> regexList = new List<string>() {"([`a4][≈§d][Õ¨m][…®i1][Œ≠n])"}
 var myClearedText = GetClearText(myDirtyText, regexList, replacement)
 // myClearedText will be = "Spamistrator"
 */
