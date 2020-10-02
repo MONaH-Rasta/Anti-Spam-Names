@@ -7,18 +7,23 @@ using System;
 
 namespace Oxide.Plugins
 {
-    [Info("Anti Spam Names", "Ultra", "1.2.0")]
+    [Info("Anti Spam Names", "Ultra", "1.2.1")]
     [Description("Replaces domain extensions or specific spam words in player's name. Also renames fake admins.")]
 
     class AntiSpamNames : CovalencePlugin
     {
         #region Initialization
+        private const string PERMISSION_IMMUNE = "antispamnames.immune";
 
         private void OnServerInitialized()
         {
+            permission.RegisterPermission(PERMISSION_IMMUNE, this);
             foreach (var player in players.Connected)
             {
-                HandleName(player);
+                if (!permission.UserHasPermission(player.Id, PERMISSION_IMMUNE))
+                {
+                    HandleName(player);
+                }
             }
         }
 
@@ -118,7 +123,10 @@ namespace Oxide.Plugins
 
         private void OnUserConnected(IPlayer player)
         {
-            HandleName(player);
+            if (!permission.UserHasPermission(player.Id, PERMISSION_IMMUNE))
+            {
+                HandleName(player);
+            }
         }
 
         private void OnUserNameUpdated(string id, string oldName, string newName)
@@ -126,7 +134,10 @@ namespace Oxide.Plugins
             if (oldName == newName) return;
 
             IPlayer player = players.FindPlayerById(id);
-            HandleName(player);
+            if (!permission.UserHasPermission(player.Id, PERMISSION_IMMUNE))
+            {
+                HandleName(player);
+            }
         }
 
         private string GetClearName(IPlayer player)
